@@ -59,3 +59,4 @@ public sealed class Animal permits Aquatic, Terrestrial {
         return "Animal{ Family:" + family + ", Name: " + name + ", Age: " + age + ", isMammal: " + isMammal + "}";
     }
 }
+
