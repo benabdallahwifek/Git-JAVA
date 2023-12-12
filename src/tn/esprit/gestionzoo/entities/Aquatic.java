@@ -1,6 +1,9 @@
 package tn.esprit.gestionzoo.entities;
 
-public abstract non-sealed class Aquatic extends Animal {
+import tn.esprit.gestionzoo.interfaces.Carnivore;
+import tn.esprit.gestionzoo.entities.enums.Food;
+
+public abstract non-sealed class Aquatic extends Animal implements Carnivore<Food> {
 
     protected String habitat;
 
@@ -11,7 +14,10 @@ public abstract non-sealed class Aquatic extends Animal {
         super(family, name, age, isMammal);
         this.habitat = habitat;
     }
-
+    public void eatMeat(Food meat)
+    {
+        System.out.println("this aquatic animal is carnivore");
+    }
 
     public abstract void swim();
 

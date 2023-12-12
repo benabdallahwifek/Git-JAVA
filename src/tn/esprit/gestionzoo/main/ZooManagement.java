@@ -1,6 +1,7 @@
 package tn.esprit.gestionzoo.main;
 
 import tn.esprit.gestionzoo.entities.*;
+import tn.esprit.gestionzoo.entities.enums.Food;
 import tn.esprit.gestionzoo.exceptions.InvalidAgeException;
 import tn.esprit.gestionzoo.exceptions.ZooFullException;
 
@@ -45,7 +46,6 @@ public class ZooManagement {
         Animal dog2 = new Animal("Canine", "lll", 2, true);
         System.out.println(myZoo.searchAnimal(dog2));
 
-//           System.out.println(myZoo.removeAnimal(dog));
         myZoo.displayAnimals();
 
 
@@ -89,14 +89,23 @@ public class ZooManagement {
         myZoo.addAquaticAnimal(p3);
         myZoo.addAquaticAnimal(new Penguin());
 
+
         for (int i = 0; i < myZoo.getNbrAquatics(); i++) {
             Aquatic[] aquatics = myZoo.getAquaticAnimals();
             aquatics[i].swim();
         }
+        
+        Penguin penguin = new Penguin("Wild animals", "Pingu", 3, true, "Ocean", 25.6f);
+        penguin.eatMeat(Food.MEAT);
 
-        myZoo.displayNumberOfAquaticsByType();
+        Dolphin dolphin = new Dolphin("Delphinoidea", "Willy", 5, true, "Ocean", 34.2f);
+        dolphin.eatMeat(Food.MEAT);
 
-        System.out.println(myZoo.maxPenguinSwimmingDepth());
+        Terrestrial terrestrial = new Terrestrial("Bears", "Winnie", 6, true, 4);
+        terrestrial.eatPlantAndMeet(Food.BOTH);
+
+        Terrestrial terrestrial2 = new Terrestrial("Rabbits", "Bugs bunny", 2, true, 4);
+        terrestrial2.eatPlants(Food.PLANTS);
 
     }
 

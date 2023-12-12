@@ -4,7 +4,7 @@ import tn.esprit.gestionzoo.exceptions.ZooFullException;
 
 public class Zoo {
 
-    public static final int NUMBER_OF_CAGES =1;
+    public static final int NUMBER_OF_CAGES = 5;
     private Animal[] animals;
     private Aquatic[] aquaticAnimals;
     private String name, city;
@@ -82,10 +82,10 @@ public class Zoo {
         System.out.println("Name: " + name + ", City: " + city + ", N° Cages: " + NUMBER_OF_CAGES + " N° animals: " + nbrAnimals);
     }
 
-    public void addAnimal(Animal animal) throws ZooFullException{
+    public void addAnimal(Animal animal) throws ZooFullException {
         if (searchAnimal(animal) != -1)
             System.out.println("This animal already exist");
-        if (isZooFull()){
+        if (isZooFull()) {
             throw new ZooFullException("The Zoo is full");
         }
         animals[nbrAnimals] = animal;
@@ -149,6 +149,7 @@ public class Zoo {
         }
         System.out.println("Le Zoo " + name + " contient " + nbrDolphins + " dauphins et " + nbrPenguins + " pingouins");
     }
+
 
     public boolean isZooFull() {
         return nbrAnimals == NUMBER_OF_CAGES;

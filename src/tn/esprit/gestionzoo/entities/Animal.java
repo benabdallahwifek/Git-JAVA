@@ -60,4 +60,5 @@ public sealed class Animal permits Aquatic, Terrestrial {
     public String toString() {
         return "Animal{ Family:" + family + ", Name: " + name + ", Age: " + age + ", isMammal: " + isMammal + "}";
     }
+
 }
