@@ -15,7 +15,6 @@ public abstract non-sealed class Aquatic extends Animal {
 
     public abstract void swim();
 
-
     @Override
     public String toString() {
         return super.toString() + ", habitat:" + habitat;
