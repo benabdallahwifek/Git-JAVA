@@ -23,11 +23,6 @@ public class SocieteArrayList implements IGestion<Employe> {
             if (employes.get(i).getNom().equals(nom))
                 return true;
         }
-        // method 2
-//        for (Employe employe : employes) {
-//            if (employe.getNom().equals(nom))
-//                return true;
-//        }
         return false;
     }
 

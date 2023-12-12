@@ -1,43 +1,54 @@
-import java.util.*;
-
+import java.util.Set;
+import java.util.HashSet;
+import java.util.TreeSet;
+import java.util.Comparator;
 public class DepartementHashSet implements IDepartement<Departement>{
-
-    Set<Departement> departementSet= new HashSet<>();
+    Set<Departement> HashSet ;
+    public DepartementHashSet()
+    {
+        HashSet = new HashSet<>();
+    }
     @Override
     public void ajouterDepartement(Departement departement) {
-        departementSet.add(departement);
+        HashSet.add(departement);
     }
 
     @Override
     public boolean rechercherDepartement(String nom) {
-        for (Departement d :departementSet){
-            if (d.nomDept.equals(nom)){
-                return  true;
+        for(Departement d : HashSet){
+            if(d.getNom_departement().equals(nom)){
+                return true;
             }
         }
-        return  false;
+        return false;
     }
-
     @Override
     public boolean rechercherDepartement(Departement departement) {
-        return departementSet.contains(departement);
+        return HashSet.contains(departement);
     }
-
     @Override
     public void supprimerDepartement(Departement departement) {
-        departementSet.remove(departement);
+        HashSet.remove(departement);
     }
 
     @Override
     public void displayDepartement() {
-        Iterator<Departement> it = departementSet.iterator();
-        while (it.hasNext()){
-            System.out.println(it.next());
+        for(Departement d : HashSet){
+            System.out.println(d);
         }
     }
-
     @Override
     public TreeSet<Departement> trierDepartementById() {
-        return new TreeSet<>(departementSet);
+
+        Comparator<Departement> comparator = new Comparator<Departement>() {
+            @Override
+            public int compare(Departement o1, Departement o2) {
+                return o1.getId() - o2.getId();
+            }
+        };
+        TreeSet<Departement> mytree = new TreeSet<>(comparator);
+        mytree.addAll(HashSet);
+        return mytree;
+
     }
 }
