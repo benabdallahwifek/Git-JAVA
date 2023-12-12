@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Employe implements Comparable<Employe> {
 
     private int identifiant, grade;
@@ -5,7 +7,13 @@ public class Employe implements Comparable<Employe> {
 
     public Employe() {
     }
-
+    public Employe(int identifiant, int grade, String nom, String prenom)
+    {
+        this.identifiant = identifiant;
+        this.grade = grade;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
     public Employe(int identifiant, int grade, String nom, String prenom, String departement) {
         this.identifiant = identifiant;
         this.grade = grade;
@@ -66,6 +74,13 @@ public class Employe implements Comparable<Employe> {
         return getIdentifiant() == employe.getIdentifiant() && getNom().equals(employe.getNom());
     }
 
+    @Override
+    public int hashCode() {
+        int res=17;
+        res=31*res+identifiant;
+        res=res+nom.hashCode();
+        return res;
+    }
 
     @Override
     public int compareTo(Employe o) {
